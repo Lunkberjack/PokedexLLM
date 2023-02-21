@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PokedexLLM</string>
+    <string name="id">ID: </string>
+    <string name="poke_description">Vista detallada de Pokemon</string>
+</resources>
