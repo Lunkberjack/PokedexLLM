@@ -5,8 +5,9 @@ import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface PokeService {
     @GET("pokemon")
-    fun getPokedexCompleta(): Call<ListaPokemons>
+    fun getPokedex(@Query("limit") limit: Int, @Query("offset") offset: Int): Call<ListaPokemons>
 }

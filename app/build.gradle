@@ -17,6 +17,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // Importante para no tener que llamar siempre a findViewById()
     buildFeatures {
         viewBinding = true
     }
@@ -46,13 +47,14 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    // De mvnrepository.com
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
     runtimeOnly("androidx.appcompat:appcompat:1.6.1")
     runtimeOnly("com.google.android.material:material:1.8.0")
 
+    // Cliente HTTP para consumo de APIs REST
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Para convertir las urls en imágenes y poder añadirlas a los ImageView:
     implementation ("com.github.bumptech.glide:glide:4.14.2") {
         exclude group: "com.android.support"
     }
@@ -61,4 +63,7 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.14.2@aar") {
         transitive = true
     }
+
+    // Para encontrar el color más prominente de una imagen, Palette API:
+    implementation "androidx.palette:palette-ktx:1.0.0"
 }
