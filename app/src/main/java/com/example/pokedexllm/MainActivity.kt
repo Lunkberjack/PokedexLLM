@@ -1,26 +1,26 @@
 package com.example.pokedexllm
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
-import android.view.ViewGroup
-import androidx.annotation.Px
+import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedexllm.APIkemon.PokeService
 import com.example.pokedexllm.adaptador.PokeAdapter2
 import com.example.pokedexllm.databinding.ActivityMainBinding
+import com.example.pokedexllm.databinding.ToolBarBinding
 import com.example.pokedexllm.model.ListaPokemons
 import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var bindingBarra: ToolBarBinding
 
     var data = arrayListOf<Pokemon>()
     var offset: Int = 0
@@ -34,19 +34,34 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-/*        val nestedScrollView = binding.recyclerView
-        nestedScrollView.viewTreeObserver?.addOnScrollChangedListener {
-            if (!nestedScrollView.canScrollVertically(1)) {
-                offset += 20
-                obtenerDatos(offset)
-            }
+        setSupportActionBar(binding.toolbar)
+
+        binding.btn1.setOnClickListener {
+            obtenerDatos(1)
         }
-*/
-        //scrolleo()
+        binding.btn2.setOnClickListener {
+            obtenerDatos(2)
+        }
+        binding.btn3.setOnClickListener {
+            obtenerDatos(3)
+        }
+        binding.btn4.setOnClickListener {
+            obtenerDatos(4)
+        }
+        binding.btn5.setOnClickListener {
+            obtenerDatos(5)
+        }
+        binding.btn6.setOnClickListener {
+            obtenerDatos(6)
+        }
+        binding.btn7.setOnClickListener {
+            obtenerDatos(7)
+        }
+
         binding.recyclerView.layoutManager = manager
         cargar = true
        //offset = 0
-        obtenerDatos(3)
+        obtenerDatos(1)
     }
 
     private fun scrolleo() {
@@ -69,6 +84,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
+
+        /*        val nestedScrollView = binding.recyclerView
+        nestedScrollView.viewTreeObserver?.addOnScrollChangedListener {
+            if (!nestedScrollView.canScrollVertically(1)) {
+                offset += 20
+                obtenerDatos(offset)
+            }
+        }
+*/
     }
 
     /**
@@ -100,14 +124,16 @@ class MainActivity : AppCompatActivity() {
                 offset = 493
                 llamada = service.getPokedex(156, offset)
             }
-
-
-            // 3-> llamada = service.getPokedex()
-            //4-> llamada = service.getPokedex()
-            //5-> llamada = service.getPokedex()
-            //6-> llamada = service.getPokedex()
+            6-> {
+                offset = 649
+                llamada = service.getPokedex(72, offset)
+            }
+            7-> {
+                offset = 721
+                llamada = service.getPokedex(88, offset)
+            }
         }
-        // La primera generación de Pokémon
+
         llamada.enqueue(object : Callback<ListaPokemons> {
             override fun onResponse(
                 call: Call<ListaPokemons>,
@@ -115,6 +141,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 cargar = true
                 if (response.isSuccessful) {
+                    // Para comprobar que se han recibido los datos
                     Log.e("poke", response.body().toString())
                     val adapter = response.body()?.let { PokeAdapter2(it.results, offset) }
                     binding.recyclerView.adapter = adapter
