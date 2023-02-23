@@ -3,10 +3,13 @@ package com.example.pokedexllm.adaptador
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.media.RingtoneManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
+import android.view.animation.LinearInterpolator
+import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -25,8 +28,29 @@ class PokeAdapter2(val list: List<Pokemon>?, offset: Int): RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: PokeViewHolder, position: Int) {
         holder.fondo.setOnClickListener {
+            val growTo = 1.2f
+            val duration: Long = 1200
+
+            val grow = ScaleAnimation(
+                1F, growTo, 1F, growTo,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+            )
+            grow.duration = duration / 2
+            val shrink = ScaleAnimation(
+                growTo, 1F, growTo, 1F,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+            )
+            shrink.duration = duration / 2
+            shrink.startOffset = duration / 2
+            val growAndShrink = AnimationSet(true)
+            growAndShrink.interpolator = LinearInterpolator()
+            growAndShrink.addAnimation(grow)
+            growAndShrink.addAnimation(shrink)
+            holder.imageView.startAnimation(growAndShrink)
             val mp: MediaPlayer = MediaPlayer()
-            // on below line we are creating a variable for our audio url
+            // Accedemos a los archivos de audio de esta página web que contiene todos los gritos de Pokémon
             var audioUrl =
                 "https://play.pokemonshowdown.com/audio/cries/${(list?.get(position))?.name}.ogg"
             mp.setDataSource(audioUrl)

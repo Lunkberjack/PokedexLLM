@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = manager
         cargar = true
        //offset = 0
-        obtenerDatos(5)
+        obtenerDatos(3)
     }
 
     private fun scrolleo() {
