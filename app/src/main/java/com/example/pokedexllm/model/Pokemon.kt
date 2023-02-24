@@ -6,7 +6,7 @@ package com.example.pokedexllm.model
  * al consultar [base-url]/pokemon
  */
     data class Pokemon (
-        val id: String,
-        val name: String,
-        val url: String
+    val id: String,
+    var name: String,
+    val url: String
     )

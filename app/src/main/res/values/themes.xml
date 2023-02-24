@@ -12,11 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="windowNoTitle">true</item>
-        <!-- Customize your theme here. -->
+        <!-- Fuente -->
+        <item name="fontFamily">@font/pokemon_pixel_font</item>
     </style>
 
     <style name="Theme.PokedexLLM.Custom" parent="Theme.AppCompat.Light">
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="windowNoTitle">true</item>
+        <item name="fontFamily">@font/pokemon_pixel_font</item>
     </style>
 </resources>

@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedexllm.APIkemon.PokeService
 import com.example.pokedexllm.adaptador.PokeAdapter2
 import com.example.pokedexllm.databinding.ActivityMainBinding
-import com.example.pokedexllm.databinding.ToolBarBinding
 import com.example.pokedexllm.model.ListaPokemons
 import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
@@ -20,7 +19,6 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bindingBarra: ToolBarBinding
 
     var data = arrayListOf<Pokemon>()
     var offset: Int = 0

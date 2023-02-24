@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@android:drawable/picture_frame"
+    android:background="@color/white"
     android:radius="500dp">
 
     <ImageView
@@ -17,8 +17,7 @@
 
     <TextView
         android:id="@+id/numero"
-        android:fontFamily="@font/osande_medium"
-        android:textSize="18sp"
+        android:textSize="22sp"
         android:textColor="@color/gris_claro"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
@@ -27,8 +26,7 @@
 
     <TextView
         android:id="@+id/nombre"
-        android:textSize="20sp"
-        android:fontFamily="@font/osande_medium"
+        android:textSize="25sp"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
         android:gravity="center_horizontal"
