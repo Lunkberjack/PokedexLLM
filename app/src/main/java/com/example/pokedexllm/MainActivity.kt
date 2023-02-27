@@ -2,23 +2,23 @@ package com.example.pokedexllm
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokedexllm.APIkemon.PokeService
-import com.example.pokedexllm.adaptador.PokeAdapter2
+import com.example.pokedexllm.adaptadores.PokeAdapter2
+import com.example.pokedexllm.databinding.ActivityDetallesPokeBinding
 import com.example.pokedexllm.databinding.ActivityMainBinding
+import com.example.pokedexllm.model.Detalles
 import com.example.pokedexllm.model.ListaPokemons
 import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var generacionActual = 1
 
     var data = arrayListOf<Pokemon>()
     var offset: Int = 0
@@ -35,31 +35,38 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         binding.btn1.setOnClickListener {
-            obtenerDatos(1)
+            generacionActual = 1
+            obtenerDatos(generacionActual)
         }
         binding.btn2.setOnClickListener {
-            obtenerDatos(2)
+            generacionActual = 2
+            obtenerDatos(generacionActual)
         }
         binding.btn3.setOnClickListener {
-            obtenerDatos(3)
+            generacionActual = 3
+            obtenerDatos(generacionActual)
         }
         binding.btn4.setOnClickListener {
-            obtenerDatos(4)
+            generacionActual = 4
+            obtenerDatos(generacionActual)
         }
         binding.btn5.setOnClickListener {
-            obtenerDatos(5)
+            generacionActual = 5
+            obtenerDatos(generacionActual)
         }
         binding.btn6.setOnClickListener {
-            obtenerDatos(6)
+            generacionActual = 6
+            obtenerDatos(generacionActual)
         }
         binding.btn7.setOnClickListener {
-            obtenerDatos(7)
+            generacionActual = 7
+            obtenerDatos(generacionActual)
         }
 
         binding.recyclerView.layoutManager = manager
         cargar = true
        //offset = 0
-        obtenerDatos(1)
+        obtenerDatos(generacionActual)
     }
 
     private fun scrolleo() {
@@ -91,6 +98,23 @@ class MainActivity : AppCompatActivity() {
             }
         }
 */
+    }
+
+    /**
+     * Guardamos la generación para que, cada vez que se llame a onCreate() (por ejemplo,
+     * cuando giramos el dispositivo), no se vuelva a la primera gneración.
+     */
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i("MyTag", "onSaveInstanceState")
+
+        outState.putInt("GENERACION_ACTUAL", generacionActual)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        generacionActual = savedInstanceState.getInt("GENERACION_ACTUAL")
     }
 
     /**

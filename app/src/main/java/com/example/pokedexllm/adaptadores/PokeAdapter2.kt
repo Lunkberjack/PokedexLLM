@@ -1,8 +1,10 @@
-package com.example.pokedexllm.adaptador
+package com.example.pokedexllm.adaptadores
 
+import android.content.Intent
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,14 +15,23 @@ import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokedexllm.APIkemon.PokeService
+import com.example.pokedexllm.DetallesPoke
+import com.example.pokedexllm.MainActivity
 import com.example.pokedexllm.R
+import com.example.pokedexllm.ServiceGenerator
+import com.example.pokedexllm.databinding.ActivityDetallesPokeBinding
+import com.example.pokedexllm.databinding.ActivityMainBinding
+import com.example.pokedexllm.model.Detalles
 import com.example.pokedexllm.model.Pokemon
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-
-class PokeAdapter2(val list: List<Pokemon>?, offset: Int): RecyclerView.Adapter<PokeViewHolder> () {
-    var offset: Int = offset
+class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): RecyclerView.Adapter<PokeViewHolder> () {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokeViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.carta_poke, parent, false)
         return PokeViewHolder(layout)
@@ -48,7 +59,7 @@ class PokeAdapter2(val list: List<Pokemon>?, offset: Int): RecyclerView.Adapter<
             holder.imageView.startAnimation(animacion())
             val mp: MediaPlayer = MediaPlayer()
             // Accedemos a los archivos de audio de esta página web que contiene todos los gritos de Pokémon
-            var audioUrl =
+            val audioUrl =
                 "https://play.pokemonshowdown.com/audio/cries/${list?.get(position)?.name}.ogg"
             mp.setDataSource(audioUrl)
             mp.setAudioAttributes(
@@ -62,6 +73,10 @@ class PokeAdapter2(val list: List<Pokemon>?, offset: Int): RecyclerView.Adapter<
             }
             mp.setOnCompletionListener {
                 mp.release()
+                val intent = Intent(holder.fondo.context, DetallesPoke::class.java).also {
+                    it.putExtra("id", position + offset + 1)
+                    startActivity(holder.fondo.context, it, null)
+                }
             }
         }
     }
