@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.pokedexllm.APIkemon.PokeService
+import com.example.pokedexllm.apikemon.PokeService
+import com.example.pokedexllm.apikemon.ServiceGenerator
 import com.example.pokedexllm.adaptadores.PokeAdapter2
-import com.example.pokedexllm.databinding.ActivityDetallesPokeBinding
 import com.example.pokedexllm.databinding.ActivityMainBinding
-import com.example.pokedexllm.model.Detalles
 import com.example.pokedexllm.model.ListaPokemons
 import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
@@ -67,37 +65,6 @@ class MainActivity : AppCompatActivity() {
         cargar = true
        //offset = 0
         obtenerDatos(generacionActual)
-    }
-
-    private fun scrolleo() {
-        binding.recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                if(dy > 0) {
-                    val visibleItemCount: Int = manager.childCount
-                    val totalItemCount: Int = manager.itemCount
-                    val pastVisibleItems: Int = manager.findFirstVisibleItemPosition()
-
-                    if(cargar) {
-                        if((visibleItemCount+pastVisibleItems) >= totalItemCount) {
-                            cargar = false
-                            offset += 20
-                            obtenerDatos(2)
-                        }
-                    }
-                }
-            }
-        })
-
-        /*        val nestedScrollView = binding.recyclerView
-        nestedScrollView.viewTreeObserver?.addOnScrollChangedListener {
-            if (!nestedScrollView.canScrollVertically(1)) {
-                offset += 20
-                obtenerDatos(offset)
-            }
-        }
-*/
     }
 
     /**
@@ -164,7 +131,7 @@ class MainActivity : AppCompatActivity() {
                 cargar = true
                 if (response.isSuccessful) {
                     // Para comprobar que se han recibido los datos
-                    Log.e("poke", response.body().toString())
+                    // Log.e("poke", response.body().toString())
                     val adapter = response.body()?.let { PokeAdapter2(it.results, offset) }
                     binding.recyclerView.adapter = adapter
                 }

@@ -1,6 +1,9 @@
 package com.example.pokedexllm.adaptadores
 
+import android.R.attr.path
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -15,23 +18,21 @@ import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.graphics.luminance
+import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.pokedexllm.APIkemon.PokeService
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.pokedexllm.DetallesPoke
-import com.example.pokedexllm.MainActivity
 import com.example.pokedexllm.R
-import com.example.pokedexllm.ServiceGenerator
-import com.example.pokedexllm.databinding.ActivityDetallesPokeBinding
-import com.example.pokedexllm.databinding.ActivityMainBinding
-import com.example.pokedexllm.model.Detalles
 import com.example.pokedexllm.model.Pokemon
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+
 
 class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): RecyclerView.Adapter<PokeViewHolder> () {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokeViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.carta_poke, parent, false)
         return PokeViewHolder(layout)
@@ -53,7 +54,24 @@ class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): R
 
         holder.txtId.text = "#${position + offset + 1}"
         val urlBaseSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-        Glide.with(holder.imageView).asBitmap().load(urlBaseSprite + "${position + offset + 1}.png").into(holder.imageView)
+        //Glide.with(holder.imageView).asBitmap().load(urlBaseSprite + "${position + offset + 1}.png").into(holder.imageView)
+
+        Glide.with(holder.imageView)
+            .asBitmap()
+            .load(urlBaseSprite + "${position + offset + 1}.png")
+            .into(object : CustomTarget<Bitmap?>() {
+                override fun onLoadCleared(placeholder: Drawable?) {}
+                override fun onResourceReady(
+                    resource: Bitmap,
+                    transition: Transition<in Bitmap?>?
+                ) {
+                    holder.imageView.setImageBitmap(resource)
+                    fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(resource).generate()
+                    holder.txtNombre.setTextColor(createPaletteSync(resource).getLightVibrantColor(
+                        0xFFFFFFFF.toInt() // Si ocurre algún problema, la letra es blanca
+                    ))
+                }
+            })
 
         holder.fondo.setOnClickListener {
             holder.imageView.startAnimation(animacion())
@@ -73,6 +91,9 @@ class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): R
             }
             mp.setOnCompletionListener {
                 mp.release()
+                // Llama a la nueva actividad (cuando acaba el grito del Pokémon) y pasa una variable
+                // en el Intent (el id) que permitirá a la siguiente actividad modificar el parámetro
+                // del método GET que se realizará a la API.
                 val intent = Intent(holder.fondo.context, DetallesPoke::class.java).also {
                     it.putExtra("id", position + offset + 1)
                     startActivity(holder.fondo.context, it, null)

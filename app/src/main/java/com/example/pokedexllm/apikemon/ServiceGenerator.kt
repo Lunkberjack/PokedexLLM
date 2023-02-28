@@ -1,4 +1,4 @@
-package com.example.pokedexllm
+package com.example.pokedexllm.apikemon
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
