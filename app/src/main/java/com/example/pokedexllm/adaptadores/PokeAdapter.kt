@@ -1,13 +1,11 @@
 package com.example.pokedexllm.adaptadores
 
-import android.R.attr.path
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaPlayer
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +16,7 @@ import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.annotation.Nullable
 import androidx.core.content.ContextCompat.startActivity
-import androidx.core.graphics.luminance
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -31,7 +27,7 @@ import com.example.pokedexllm.R
 import com.example.pokedexllm.model.Pokemon
 
 
-class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): RecyclerView.Adapter<PokeViewHolder> () {
+class PokeAdapter(private val list: List<Pokemon>?, private var offset: Int): RecyclerView.Adapter<PokeViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokeViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.carta_poke, parent, false)
@@ -41,18 +37,55 @@ class PokeAdapter2(private val list: List<Pokemon>?, private var offset: Int): R
     override fun onBindViewHolder(holder: PokeViewHolder, position: Int) {
         // Se accede a cada instancia de Pokémon y se retorna su nombre.
         // Nos aseguramos de que el nombre que retorna la PokéAPI no contenga palabras separadas por -,
-        // ya que nuestro banco de datos de sonido solo reconoce el nombre base de cada Pokémon.
-        if(list?.get(position)?.name?.equals("ho-oh") == true) {
-            list[position].name = "hooh"
-            holder.txtNombre.text = "Ho-oh"
+        // ya que nuestro banco de datos de sonido solo reconoce el nombre base de cada Pokémon, y del
+        // sonido depende que se pueda llamar a la nueva actividad de los detalles.
+        if((position + offset + 1) == 29) { //  -------------------------------------- Casos especiales
+            list?.get(position)?.name = "nidoranf"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 32) {
+            list?.get(position)?.name = "nidoranm"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 122) {
+            list?.get(position)?.name = "mrmime"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 439) {
+            list?.get(position)?.name = "mimejr"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 250) {
+            list?.get(position)?.name = "hooh"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 772) {
+            list?.get(position)?.name = "typenull"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 782) {
+            list?.get(position)?.name = "jangmoo"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 783) {
+            list?.get(position)?.name = "hakamoo"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 784) {
+            list?.get(position)?.name = "kommoo"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 785) {
+            list?.get(position)?.name = "tapukoko"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 786) {
+            list?.get(position)?.name = "tapulele"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 787) {
+            list?.get(position)?.name = "tapubulu"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
+        } else if((position + offset + 1) == 788) {
+            list?.get(position)?.name = "tapufini"
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
         } else if(list?.get(position)?.name?.contains("-") == true) {
-            list[position].name = list[position].name.split("-")[0] // Primera palabra, el nombre base
-            holder.txtNombre.text = "${list[position].name}\n"
+            list[position].name = list[position].name.split("-")[0] // ---- Primera palabra, el nombre base
+            "${list[position].name}\n".also { holder.txtNombre.text = it }
         } else {
-            holder.txtNombre.text = "${(list?.get(position))?.name}\n" // Añadimos el nombre tal y como está
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it } // -- Añadimos el nombre tal y como está
         }
 
-        holder.txtId.text = "#${position + offset + 1}"
+        "#${position + offset + 1}".also { holder.txtId.text = it }
         val urlBaseSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
         //Glide.with(holder.imageView).asBitmap().load(urlBaseSprite + "${position + offset + 1}.png").into(holder.imageView)
 

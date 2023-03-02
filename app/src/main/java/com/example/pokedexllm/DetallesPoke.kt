@@ -2,12 +2,17 @@ package com.example.pokedexllm
 
 import android.R.attr.radius
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.media.AudioAttributes
+import android.media.AudioManager
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.toColor
 import androidx.core.view.ViewCompat
@@ -20,6 +25,7 @@ import com.example.pokedexllm.apikemon.PokeService
 import com.example.pokedexllm.apikemon.ServiceGenerator
 import com.example.pokedexllm.databinding.ActivityDetallesPokeBinding
 import com.example.pokedexllm.model.Detalles
+import com.example.pokedexllm.model.Types
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -117,6 +123,7 @@ class DetallesPoke : AppCompatActivity() {
                     // Se mete dentro de onResourceReady para que no haya un pequeño instante en que el fondo
                     // aún no ha cargado, pero el texto sí.
                     if (response != null) {
+                        "#${idActual.toString()}".also { bindingDetalles.id.text = it }
                         // Reemplaza el primer carácter (en minúscula) con el equivalente en mayúscula:
                         bindingDetalles.nombre.text = response.body()?.name.toString().replaceFirstChar { it.titlecase() }
                         "Altura:\n${((response.body()?.height)?.toDouble()?.div(10))} m".also { bindingDetalles.altura.text = it }
@@ -124,35 +131,36 @@ class DetallesPoke : AppCompatActivity() {
 
                         for(tipo in response.body()?.types!!) {
                             val txtTipo = TextView(bindingDetalles.cajaTipos.context)
-
-                            // Traducción:
-                            when(tipo.type.name.uppercase(Locale.ROOT)) {
-                                "WATER" -> txtTipo.text = "     AGUA     "
-                                "FIRE" -> txtTipo.text = "     FUEGO     "
-                                "GRASS" -> txtTipo.text = "     PLANTA     "
-                                "NORMAL" -> txtTipo.text = "     NORMAL     "
-                                "FLYING" -> txtTipo.text = "     VOLADOR     "
-                                "FIGHTING" -> txtTipo.text = "     LUCHA     "
-                                "POISON" -> txtTipo.text = "     VENENO     "
-                                "ELECTRIC" -> txtTipo.text = "     ELÉCTRICO     "
-                                "GROUND" -> txtTipo.text = "     TIERRA     "
-                                "ROCK" -> txtTipo.text = "     ROCA     "
-                                "PSYCHIC" -> txtTipo.text = "     PSÍQUICO     "
-                                "ICE" -> txtTipo.text = "     HIELO     "
-                                "BUG" -> txtTipo.text = "     BICHO     "
-                                "GHOST" -> txtTipo.text = "     FANTASMA     "
-                                "STEEL" -> txtTipo.text = "     ACERO     "
-                                "DRAGON" -> txtTipo.text = "     DRAGÓN     "
-                                "DARK" -> txtTipo.text = "     SINIESTRO     "
-                                "FAIRY" -> txtTipo.text = "     HADA     "
-                            }
-
+                            traduccion(tipo, txtTipo)
                             txtTipo.setBackgroundResource(R.drawable.borde_tipo)
-
                             bindingDetalles.cajaTipos.addView(txtTipo)
                         }
                     }
                 }
             })
+    }
+
+    private fun traduccion(tipo: Types, txtTipo: TextView) {
+        // Traducción:
+        when(tipo.type.name.uppercase(Locale.ROOT)) {
+            "WATER" -> txtTipo.text = "     AGUA     "
+            "FIRE" -> txtTipo.text = "     FUEGO     "
+            "GRASS" -> txtTipo.text = "     PLANTA     "
+            "NORMAL" -> txtTipo.text = "     NORMAL     "
+            "FLYING" -> txtTipo.text = "     VOLADOR     "
+            "FIGHTING" -> txtTipo.text = "     LUCHA     "
+            "POISON" -> txtTipo.text = "     VENENO     "
+            "ELECTRIC" -> txtTipo.text = "     ELÉCTRICO     "
+            "GROUND" -> txtTipo.text = "     TIERRA     "
+            "ROCK" -> txtTipo.text = "     ROCA     "
+            "PSYCHIC" -> txtTipo.text = "     PSÍQUICO     "
+            "ICE" -> txtTipo.text = "     HIELO     "
+            "BUG" -> txtTipo.text = "     BICHO     "
+            "GHOST" -> txtTipo.text = "     FANTASMA     "
+            "STEEL" -> txtTipo.text = "     ACERO     "
+            "DRAGON" -> txtTipo.text = "     DRAGÓN     "
+            "DARK" -> txtTipo.text = "     SINIESTRO     "
+            "FAIRY" -> txtTipo.text = "     HADA     "
+        }
     }
 }

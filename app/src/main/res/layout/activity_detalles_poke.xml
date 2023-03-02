@@ -19,6 +19,24 @@
         android:contentDescription="@string/content_detalles_sprite" />
 
     <TextView
+        android:id="@+id/id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/sombra_texto"
+        android:paddingBottom="2dp"
+        android:shadowDx="6"
+        android:shadowDy="6"
+        android:shadowRadius="15"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+
+        app:layout_constraintBottom_toTopOf="@id/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sprite" />
+
+    <TextView
         android:id="@+id/nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +98,7 @@
         android:id="@+id/patras"
         android:layout_width="82dp"
         android:layout_height="80dp"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:background="@drawable/flecha"
         android:backgroundTint="@color/white"
         android:rotationY="180"

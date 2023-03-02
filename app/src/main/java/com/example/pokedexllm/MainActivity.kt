@@ -1,30 +1,33 @@
 package com.example.pokedexllm
 
+import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokedexllm.apikemon.PokeService
 import com.example.pokedexllm.apikemon.ServiceGenerator
-import com.example.pokedexllm.adaptadores.PokeAdapter2
+import com.example.pokedexllm.adaptadores.PokeAdapter
 import com.example.pokedexllm.databinding.ActivityMainBinding
 import com.example.pokedexllm.model.ListaPokemons
 import com.example.pokedexllm.model.Pokemon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+    private val POKEMON_TOTALES = 808
     private lateinit var binding: ActivityMainBinding
     private var generacionActual = 1
 
     var data = arrayListOf<Pokemon>()
-    var offset: Int = 0
-    var cargar: Boolean = true
-    val manager: GridLayoutManager = GridLayoutManager(this, 2)
+    private val manager: GridLayoutManager = GridLayoutManager(this, 2)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val adapter = PokeAdapter2(null, 0)
+        val adapter = PokeAdapter(null, 0)
 
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -61,27 +64,22 @@ class MainActivity : AppCompatActivity() {
             obtenerDatos(generacionActual)
         }
 
+        // Un Pokémon random de cualquier generación al pulsar la Pokéball.
+        binding.random.setOnClickListener {
+            val rnd = Random().nextInt(POKEMON_TOTALES)+1
+            val mp: MediaPlayer = MediaPlayer.create(binding.random.context, R.raw.pokeball)
+            mp.start()
+            mp.setOnCompletionListener {
+                mp.release()
+            }
+            val intent = Intent(binding.random.context, DetallesPoke::class.java).also {
+                it.putExtra("id", rnd)
+                ContextCompat.startActivity(binding.random.context, it, null)
+            }
+        }
+
         binding.recyclerView.layoutManager = manager
-        cargar = true
-       //offset = 0
         obtenerDatos(generacionActual)
-    }
-
-    /**
-     * Guardamos la generación para que, cada vez que se llame a onCreate() (por ejemplo,
-     * cuando giramos el dispositivo), no se vuelva a la primera gneración.
-     */
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        Log.i("MyTag", "onSaveInstanceState")
-
-        outState.putInt("GENERACION_ACTUAL", generacionActual)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        generacionActual = savedInstanceState.getInt("GENERACION_ACTUAL")
     }
 
     /**
@@ -128,11 +126,10 @@ class MainActivity : AppCompatActivity() {
                 call: Call<ListaPokemons>,
                 response: Response<ListaPokemons>
             ) {
-                cargar = true
                 if (response.isSuccessful) {
                     // Para comprobar que se han recibido los datos
                     // Log.e("poke", response.body().toString())
-                    val adapter = response.body()?.let { PokeAdapter2(it.results, offset) }
+                    val adapter = response.body()?.let { PokeAdapter(it.results, offset) }
                     binding.recyclerView.adapter = adapter
                 }
             }

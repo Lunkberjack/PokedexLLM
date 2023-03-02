@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.PokedexLLM" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.PokedexLLM" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -14,9 +14,14 @@
         <item name="windowNoTitle">true</item>
         <!-- Fuente -->
         <item name="fontFamily">@font/pokemon_pixel_font</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
     </style>
 
+    <!-- El forceDarkAllowed hace que, en teléfonos con tema oscuro aplicable a apps
+    (como Xiaomi) se fuerce a usar el tema claro. Esto hace que los colores del fondo
+    no se modifiquen -->
     <style name="Theme.PokedexLLM.Custom" parent="Theme.AppCompat.Light">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/pokemon_pixel_font</item>
