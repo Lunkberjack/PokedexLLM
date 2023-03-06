@@ -3,4 +3,6 @@
     <string name="poke_description">Vista detallada de Pokemon</string>
     <string name="content_detalles_sprite">Sprite del Pokémon (arte oficial)</string>
     <string name="menu">Pokéball menú</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="logo">Logo Pokédex</string>
 </resources>

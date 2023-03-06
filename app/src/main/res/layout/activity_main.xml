@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
     android:background="@color/black"
     tools:context=".MainActivity">
@@ -35,6 +35,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
@@ -47,21 +48,36 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toStartOf="@id/guiaFin"
-                app:layout_constraintStart_toStartOf="@id/guiaInicio">
-
-                <ImageView
-                    android:layout_width="175dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:contentDescription="Logo Pokédex"
-                    android:src="@drawable/pokedex_logo" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="175dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="@string/logo"
+                        android:src="@drawable/pokedex_logo" />
+
+                    <pl.droidsonroids.gif.GifImageView
+                        android:id="@+id/ayuda"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:contentDescription="@string/ayuda"
+                        android:src="@drawable/help"
+                        app:layout_constraintEnd_toEndOf="@+id/constraintLayout" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/numeros"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:gravity="center"
@@ -149,6 +165,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
     <Button
         android:id="@+id/random"
         android:layout_width="100dp"
@@ -159,4 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
