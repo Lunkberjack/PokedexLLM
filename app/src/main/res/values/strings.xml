@@ -5,4 +5,7 @@
     <string name="menu">Pokéball menú</string>
     <string name="ayuda">Ayuda</string>
     <string name="logo">Logo Pokédex</string>
+    <string name="descripcion">En la parte superior puedes encontrar\nun filtro por generaciones.\n\nPor favor, ten paciencia al pulsar\ncada Pokemon: el grito se reproduce\nantes de mostrar la ficha.</string>
+    <string name="mensaje2">Pulsa la Pokeball para acceder a\nla entrada de un Pokemon aleatorio :)</string>
+    <string name="creditos">Desarrollado por Lunkberjack</string>
 </resources>

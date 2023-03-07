@@ -78,6 +78,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        // Ayuda (el Unown flotando libre a la derecha de la pantalla)
+        binding.ayuda.setOnClickListener {
+            val intent = Intent(binding.random.context, AyudaInteractiva::class.java).also {
+                ContextCompat.startActivity(binding.ayuda.context, it, null)
+            }
+        }
+
         binding.recyclerView.layoutManager = manager
         obtenerDatos(generacionActual)
     }

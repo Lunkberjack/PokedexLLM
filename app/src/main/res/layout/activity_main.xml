@@ -9,27 +9,6 @@
     android:background="@color/black"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="0dp" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guiaFin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guiaInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="0dp" />
-
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,18 +23,18 @@
             android:layout_height="wrap_content"
             android:background="@color/black"
             android:minHeight="?attr/actionBarSize"
-            app:layout_constraintBottom_toTopOf="@+id/guia">
+            app:contentInsetStart="0dp">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -67,13 +46,6 @@
                         android:contentDescription="@string/logo"
                         android:src="@drawable/pokedex_logo" />
 
-                    <pl.droidsonroids.gif.GifImageView
-                        android:id="@+id/ayuda"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:contentDescription="@string/ayuda"
-                        android:src="@drawable/help"
-                        app:layout_constraintEnd_toEndOf="@+id/constraintLayout" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -176,5 +148,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
-
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/ayuda"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_margin="15dp"
+        android:contentDescription="@string/ayuda"
+        android:src="@drawable/help"
+        android:rotation="15"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
