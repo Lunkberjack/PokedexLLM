@@ -39,55 +39,27 @@ class PokeAdapter(private val list: List<Pokemon>?, private var offset: Int): Re
         // Nos aseguramos de que el nombre que retorna la PokéAPI no contenga palabras separadas por -,
         // ya que nuestro banco de datos de sonido solo reconoce el nombre base de cada Pokémon, y del
         // sonido depende que se pueda llamar a la nueva actividad de los detalles.
-        if((position + offset + 1) == 29) { //  -------------------------------------- Casos especiales
-            list?.get(position)?.name = "nidoranf"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 32) {
-            list?.get(position)?.name = "nidoranm"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 122) {
-            list?.get(position)?.name = "mrmime"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 439) {
-            list?.get(position)?.name = "mimejr"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 250) {
-            list?.get(position)?.name = "hooh"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 772) {
-            list?.get(position)?.name = "typenull"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 782) {
-            list?.get(position)?.name = "jangmoo"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 783) {
-            list?.get(position)?.name = "hakamoo"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 784) {
-            list?.get(position)?.name = "kommoo"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 785) {
-            list?.get(position)?.name = "tapukoko"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 786) {
-            list?.get(position)?.name = "tapulele"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 787) {
-            list?.get(position)?.name = "tapubulu"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if((position + offset + 1) == 788) {
-            list?.get(position)?.name = "tapufini"
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
-        } else if(list?.get(position)?.name?.contains("-") == true) {
-            list[position].name = list[position].name.split("-")[0] // ---- Primera palabra, el nombre base
+        when(position+offset+1) {
+            // En estos casos especiales, elimina el guion de separación y une ambas palabras.
+            29,32,122,250,439,772,783,784,785,786,787,788 -> {
+                list?.get(position)?.name = list?.get(position)?.name?.replace("-", "")!!
+                "${(list[position]).name}\n".also { holder.txtNombre.text = it }
+            }
+        }
+        // Elimina el guion y se queda solo con la primera palabra.
+        if(list?.get(position)?.name?.contains("-") == true) {
+            list[position].name = list[position].name.split("-")[0]
             "${list[position].name}\n".also { holder.txtNombre.text = it }
+        // Añade el nombre tal y como está.
         } else {
-            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it } // -- Añadimos el nombre tal y como está
+            "${(list?.get(position))?.name}\n".also { holder.txtNombre.text = it }
         }
 
+        // El id
         "#${position + offset + 1}".also { holder.txtId.text = it }
+
+        // La imagen
         val urlBaseSprite = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
-        //Glide.with(holder.imageView).asBitmap().load(urlBaseSprite + "${position + offset + 1}.png").into(holder.imageView)
 
         Glide.with(holder.imageView)
             .asBitmap()
