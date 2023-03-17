@@ -1,0 +1,122 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.pokedexllm"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml
+10    <!-- Importante, para que pueda usar el servicio http -->
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:5:5-67
+11-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:5:22-64
+12
+13    <permission
+13-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+14        android:name="com.example.pokedexllm.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+14-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+15        android:protectionLevel="signature" />
+15-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+16
+17    <uses-permission android:name="com.example.pokedexllm.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+17-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+17-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+18
+19    <application
+19-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:7:5-43:19
+20        android:allowBackup="true"
+20-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.9.0] /home/lucia/.gradle/caches/transforms-3/f3889f18d4f26e70cef4e17d11226053/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+22        android:dataExtractionRules="@xml/data_extraction_rules"
+22-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:9:9-65
+23        android:extractNativeLibs="false"
+24        android:fullBackupContent="@xml/backup_rules"
+24-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:10:9-54
+25        android:icon="@drawable/pokeball"
+25-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:11:9-42
+26        android:label="@string/app_name"
+26-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:12:9-41
+27        android:roundIcon="@drawable/pokeball"
+27-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:13:9-47
+28        android:supportsRtl="true"
+28-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:14:9-35
+29        android:theme="@style/Theme.PokedexLLM.Custom"
+29-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:15:9-55
+30        android:usesCleartextTraffic="true" >
+30-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:16:9-44
+31        <activity
+31-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:18:9-25:20
+32            android:name="com.example.pokedexllm.DetallesPoke"
+32-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:19:13-41
+33            android:exported="false"
+33-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:21:13-37
+34            android:screenOrientation="portrait" >
+34-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:20:13-49
+35            <meta-data
+35-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:22:13-24:36
+36                android:name="android.app.lib_name"
+36-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:23:17-52
+37                android:value="" />
+37-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:24:17-33
+38        </activity>
+39        <!--
+40             El configChanges permite que no se llame al onCreate() cada vez que se gira el dispositivo.
+41             El portrait desactiva el modo landscape.
+42        -->
+43        <activity
+43-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:28:9-42:20
+44            android:name="com.example.pokedexllm.MainActivity"
+44-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:29:13-41
+45            android:configChanges="orientation|keyboardHidden|screenSize|uiMode"
+45-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:31:13-81
+46            android:exported="true"
+46-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:32:13-36
+47            android:screenOrientation="portrait" >
+47-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:30:13-49
+48            <intent-filter>
+48-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:33:13-37:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:34:17-69
+49-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:34:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:36:17-77
+51-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:36:27-74
+52            </intent-filter>
+53
+54            <meta-data
+54-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:22:13-24:36
+55                android:name="android.app.lib_name"
+55-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:23:17-52
+56                android:value="" />
+56-->/home/lucia/AndroidStudioProjects/PokedexLLM/app/src/main/AndroidManifest.xml:24:17-33
+57        </activity>
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.pokedexllm.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.2.0] /home/lucia/.gradle/caches/transforms-3/a44fe69b7f5ac0e141d6bda2f04e92a5/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lucia/.gradle/caches/transforms-3/baa824db3c1bec348e984fa25af19fb7/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lucia/.gradle/caches/transforms-3/baa824db3c1bec348e984fa25af19fb7/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/lucia/.gradle/caches/transforms-3/baa824db3c1bec348e984fa25af19fb7/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+69        </provider>
+70    </application>
+71
+72</manifest>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="black">#FF000000</color>
+    <color name="gris_claro">#a7a7a7</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="sombra_texto">#7F000000</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">Lunkémon</string>
+    <string name="content_detalles_sprite">Sprite del Pokémon (arte oficial)</string>
+    <string name="menu">Pokéball menú</string>
+    <string name="poke_description">Vista detallada de Pokemon</string>
+    <style name="Theme.PokedexLLM" parent="Theme.AppCompat.Light.NoActionBar">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="windowNoTitle">true</item>
+        
+        <item name="fontFamily">@font/pokemon_pixel_font</item>
+        <item name="android:forceDarkAllowed" ns1:targetApi="q">false</item>
+    </style>
+    <style name="Theme.PokedexLLM.Custom" parent="Theme.AppCompat.Light">
+        <item name="android:forceDarkAllowed" ns1:targetApi="q">false</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="windowNoTitle">true</item>
+        <item name="fontFamily">@font/pokemon_pixel_font</item>
+    </style>
+</resources>

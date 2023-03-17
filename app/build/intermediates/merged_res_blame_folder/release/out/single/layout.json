@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.example.pokedexllm.app-mergeReleaseResources-29:/layout/activity_main.xml",
+        "source": "com.example.pokedexllm.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.pokedexllm.app-mergeReleaseResources-29:/layout/activity_detalles_poke.xml",
+        "source": "com.example.pokedexllm.app-main-31:/layout/activity_detalles_poke.xml"
+    },
+    {
+        "merged": "com.example.pokedexllm.app-mergeReleaseResources-29:/layout/carta_poke.xml",
+        "source": "com.example.pokedexllm.app-main-31:/layout/carta_poke.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-mergeReleaseResources-29:/layout/activity_main.xml",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-mergeReleaseResources-29:/layout/tool_bar.xml",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-31:/layout/tool_bar.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-mergeReleaseResources-29:/layout/carta_poke.xml",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-31:/layout/carta_poke.xml"
+    }
+]

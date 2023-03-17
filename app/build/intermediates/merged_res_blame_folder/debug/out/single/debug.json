@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_calaguts.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/calaguts.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/layout_activity_ayuda_interactiva.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/layout/activity_ayuda_interactiva.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_help.gif.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/help.gif"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_shiny_momento.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/shiny_momento.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_pokedex_logo.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/pokedex_logo.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/layout_activity_main.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.pokedexllm.app-merged_res-31:/layout_activity_ayuda_interactiva.xml.flat",
+        "source": "com.example.pokedexllm.app-main-33:/layout/activity_ayuda_interactiva.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-pngs-26:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/raw_pokeball.mp3.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/raw/pokeball.mp3"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_pokeball_wapa.jpeg.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/pokeball_wapa.jpeg"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/layout_activity_detalles_poke.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/layout/activity_detalles_poke.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_media_pokeball.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/media_pokeball.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/font_pokemon_pixel_font.ttf.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/font/pokemon_pixel_font.ttf"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_ayuda_psyduck.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/ayuda_psyduck.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/font_osande_medium.ttf.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/font/osande_medium.ttf"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/xml_backup_rules.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_shine.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/shine.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_flecha.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/flecha.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/xml_data_extraction_rules.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_pokeball.png.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/pokeball.png"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/layout_carta_poke.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/layout/carta_poke.xml"
+    },
+    {
+        "merged": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-merged_res-31:/drawable_borde_tipo.xml.flat",
+        "source": "/home/lucia/.gradle/daemon/7.4/com.example.pokedexllm.app-main-33:/drawable/borde_tipo.xml"
+    }
+]
